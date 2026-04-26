@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 px-4 py-32 sm:px-6">
+    <div className="fade-rise mx-auto flex max-w-3xl flex-col items-start gap-6 px-4 py-32 sm:px-6">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
         404 — pattern not found
       </p>

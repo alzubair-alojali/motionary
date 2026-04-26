@@ -16,13 +16,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://motionary.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Motionary — Motion patterns for developers",
     template: "%s · Motionary",
   },
   description:
-    "A reference library of motion patterns. Each entry pairs a live demo with a copy-ready AI prompt.",
+    "A reference library of motion patterns. Each entry pairs a live demo with a copy-ready AI prompt for your coding agent.",
+  openGraph: {
+    type: "website",
+    siteName: "Motionary",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem('theme')||'dark';if(t==='dark')document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})();`;

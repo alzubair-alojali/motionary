@@ -12,7 +12,7 @@ export default function Home() {
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[480px] demo-glow"
       />
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
-        <div className="max-w-3xl">
+        <div className="fade-rise max-w-3xl">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
             {totalExamples} patterns · prompt-ready · MIT
           </p>

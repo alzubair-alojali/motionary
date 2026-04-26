@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Motionary
 
-## Getting Started
+A reference library of motion patterns for developers — transitions, hover
+effects, scroll animations, loading states, micro-interactions, and text
+animations. Each entry pairs a live demo with a copy-ready AI prompt you can
+hand to a coding agent (Claude, Cursor, v0) and get the effect rebuilt in your
+own stack.
 
-First, run the development server:
+## Why
+
+AI coding agents struggle to produce nuanced motion without a precise
+description. Existing animation galleries either show only finished UI (no
+spec) or only code (locked to a framework). Motionary closes the gap — every
+pattern has a framework-agnostic effect description ready to paste.
+
+## Stack
+
+- Next.js 16 · App Router · TypeScript · Tailwind 4
+- [`motion`](https://motion.dev) (motion.dev's React lib, formerly Framer
+  Motion)
+- `lucide-react` icons · `sonner` toasts · `clsx` + `tailwind-merge` utility
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static export — 26 prerendered pages
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Categories
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Slug                  | Patterns                                                |
+| --------------------- | ------------------------------------------------------- |
+| `hover-effects`       | Magnetic Button · Glow Follow · Lift + Shadow           |
+| `page-transitions`    | Slide Reveal · Curtain Wipe · Morph Fade                |
+| `scroll-animations`   | Parallax Layers · Reveal on Scroll · Sticky Pin         |
+| `loading-states`      | Skeleton Shimmer · Dot Pulse · Progress Morph           |
+| `micro-interactions`  | Heart Pop · Checkbox Draw · Toggle Slide                |
+| `text-animations`     | Typewriter · Stagger Fade · Glitch Reveal               |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Adding a new pattern
 
-## Learn More
+1. Pick a category folder under `content/examples/`.
+2. Create a new directory: `content/examples/<category>/<slug>/`.
+3. Add `meta.ts` with the `ExampleMeta` shape (title, description, prompt,
+   tags) and `demo.tsx` (a `'use client'` component that fills its container).
+4. Register it in `content/registry.ts` — import the meta and demo, add an
+   entry to the category's array.
 
-To learn more about Next.js, take a look at the following resources:
+Every demo:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Is a Client Component (`'use client'`).
+- Honors `useReducedMotion()` from `motion/react` — collapse to a sensible
+  static end-state when reduced.
+- Uses palette tokens (`bg-accent`, `text-foreground`, etc.) instead of
+  hard-coded colors.
+- Sized to fill its container (`h-full w-full`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design context
 
-## Deploy on Vercel
+The full brand and aesthetic guidelines are at [`.impeccable.md`](./.impeccable.md).
+TL;DR: technical, premium, modern · violet accent on near-black · quiet
+surfaces, loud motion · developer-direct copy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT.

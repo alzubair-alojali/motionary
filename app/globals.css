@@ -48,6 +48,10 @@ html.dark {
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: var(--background);
@@ -103,4 +107,36 @@ body {
     color-mix(in oklab, var(--accent) 14%, transparent),
     transparent 70%
   );
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-rise > * {
+  opacity: 0;
+  animation: fade-rise 0.6s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.fade-rise > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.fade-rise > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+.fade-rise > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+.fade-rise > *:nth-child(4) {
+  animation-delay: 270ms;
+}
+.fade-rise > *:nth-child(5) {
+  animation-delay: 360ms;
 }
