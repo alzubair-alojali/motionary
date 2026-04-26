@@ -16,7 +16,9 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { category, slug } = await props.params;
   const example = getExample(category, slug);
-  if (!example) return {};
+  if (!example) {
+    return { title: "Pattern not found" };
+  }
   return {
     title: example.title,
     description: example.description,
@@ -64,12 +66,19 @@ export default async function ExamplePage(
 
       <section className="mt-12">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="text-base font-medium tracking-tight text-foreground">
+          <h2
+            id="ai-prompt-heading"
+            className="text-base font-medium tracking-tight text-foreground"
+          >
             AI prompt
           </h2>
           <CopyPromptButton prompt={example.prompt} />
         </div>
-        <pre className="mt-4 overflow-auto whitespace-pre-wrap rounded-2xl border border-border bg-surface p-5 font-mono text-sm leading-relaxed text-foreground">
+        <pre
+          tabIndex={0}
+          aria-labelledby="ai-prompt-heading"
+          className="mt-4 overflow-auto whitespace-pre-wrap rounded-2xl border border-border bg-surface p-5 font-mono text-sm leading-relaxed text-foreground"
+        >
           {example.prompt}
         </pre>
       </section>

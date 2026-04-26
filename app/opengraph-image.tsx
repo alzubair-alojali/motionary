@@ -16,7 +16,7 @@ export default function OpengraphImage() {
           justifyContent: "center",
           padding: "80px",
           background:
-            "radial-gradient(900px 500px at 0% 0%, #2a1d4f 0%, transparent 60%), linear-gradient(135deg, #0a0a0b 0%, #131316 100%)",
+            "radial-gradient(900px 500px at 0% 0%, #0e3a4a 0%, transparent 60%), linear-gradient(135deg, #0a0a0b 0%, #131316 100%)",
           color: "#fafafa",
           fontFamily: "system-ui, sans-serif",
         }}
@@ -27,7 +27,7 @@ export default function OpengraphImage() {
             alignItems: "center",
             gap: 16,
             fontSize: 26,
-            color: "#a78bfa",
+            color: "#22d3ee",
             textTransform: "uppercase",
             letterSpacing: 6,
           }}
@@ -38,7 +38,7 @@ export default function OpengraphImage() {
               width: 14,
               height: 14,
               borderRadius: 999,
-              background: "#a78bfa",
+              background: "#22d3ee",
             }}
           />
           Motionary

@@ -15,7 +15,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label={nextLabel}
       title={nextLabel}
       className={cn(
-        "inline-flex h-9 w-9 items-center justify-center rounded-full",
+        "inline-flex h-11 w-11 items-center justify-center rounded-full",
         "text-muted-foreground hover:text-foreground hover:bg-surface",
         "transition-colors duration-150",
         className,

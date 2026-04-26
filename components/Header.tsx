@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 
-function GithubIcon({ size = 16 }: { size?: number }) {
+function GithubIcon({ size = 14 }: { size?: number }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,13 +16,18 @@ function GithubIcon({ size = 16 }: { size?: number }) {
   );
 }
 
+const pillBase =
+  "inline-flex h-11 items-center rounded-full border border-border bg-surface/60 backdrop-blur-xl transition-colors";
+const pillHover = "hover:bg-surface hover:text-foreground";
+
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header className="pointer-events-none sticky top-4 z-40 px-4 sm:px-8 lg:px-12">
+      <div className="pointer-events-auto flex items-center justify-between gap-3">
         <Link
           href="/"
-          className="group inline-flex items-center gap-2 text-base font-medium tracking-tight text-foreground"
+          aria-label="Motionary home"
+          className={`group ${pillBase} ${pillHover} gap-2.5 pl-3 pr-4 text-sm font-medium tracking-tight text-foreground`}
         >
           <span className="relative inline-block h-2 w-2">
             <span className="absolute inset-0 rounded-full bg-accent" aria-hidden="true" />
@@ -34,10 +39,10 @@ export function Header() {
           Motionary
         </Link>
 
-        <nav className="flex items-center gap-1">
+        <nav className="flex items-center gap-2">
           <Link
             href="/#categories"
-            className="hidden h-9 items-center rounded-full px-3 text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
+            className={`hidden ${pillBase} ${pillHover} px-4 text-sm text-muted-foreground sm:inline-flex`}
           >
             Categories
           </Link>
@@ -46,11 +51,13 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub repository"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
+            className={`${pillBase} ${pillHover} w-11 justify-center text-muted-foreground`}
           >
-            <GithubIcon size={16} />
+            <GithubIcon size={14} />
           </a>
-          <ThemeToggle />
+          <ThemeToggle
+            className={`${pillBase} ${pillHover} w-11 justify-center text-muted-foreground`}
+          />
         </nav>
       </div>
     </header>

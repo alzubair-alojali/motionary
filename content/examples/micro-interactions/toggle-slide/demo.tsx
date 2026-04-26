@@ -21,6 +21,7 @@ export default function Demo() {
         type="button"
         role="switch"
         aria-checked={display}
+        aria-label="Toggle slide demo"
         onClick={() => setOn((v) => !v)}
         className="relative h-9 w-16 rounded-full transition-colors duration-200"
         style={{

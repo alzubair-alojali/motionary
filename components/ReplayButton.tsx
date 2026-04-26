@@ -13,14 +13,14 @@ export function ReplayButton({ className }: { className?: string }) {
       aria-label="Replay demo"
       title="Replay"
       className={cn(
-        "inline-flex h-8 w-8 items-center justify-center rounded-full",
+        "inline-flex h-11 w-11 items-center justify-center rounded-full",
         "border border-border bg-background/70 text-muted-foreground",
         "backdrop-blur-sm transition-colors duration-150",
         "hover:bg-background hover:text-foreground",
         className,
       )}
     >
-      <RotateCcw size={14} />
+      <RotateCcw size={16} />
     </button>
   );
 }

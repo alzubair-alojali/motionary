@@ -14,7 +14,9 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { category: categorySlug } = await props.params;
   const category = getCategory(categorySlug);
-  if (!category) return {};
+  if (!category) {
+    return { title: "Category not found" };
+  }
   return {
     title: category.title,
     description: category.description,

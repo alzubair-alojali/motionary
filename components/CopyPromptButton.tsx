@@ -30,8 +30,8 @@ export function CopyPromptButton({ prompt, className }: CopyPromptButtonProps) {
       onClick={handleCopy}
       aria-label="Copy prompt to clipboard"
       className={cn(
-        "inline-flex h-9 items-center gap-2 rounded-full",
-        "bg-accent px-4 text-sm font-medium text-accent-foreground",
+        "inline-flex h-11 items-center gap-2 rounded-full",
+        "bg-accent px-5 text-sm font-medium text-accent-foreground",
         "transition-transform duration-150 hover:scale-[1.02]",
         "active:scale-[0.98]",
         className,

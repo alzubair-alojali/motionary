@@ -21,6 +21,7 @@ export default function Demo() {
         type="button"
         role="checkbox"
         aria-checked={display}
+        aria-label="Checkbox draw demo"
         onClick={() => setChecked((c) => !c)}
       >
         <motion.div

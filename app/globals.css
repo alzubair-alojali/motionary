@@ -10,10 +10,10 @@
   --border: #e4e4e7;
   --muted: #f4f4f5;
   --muted-foreground: #52525b;
-  --accent: #7c3aed;
-  --accent-soft: #ede9fe;
+  --accent: #0e7490;
+  --accent-soft: #cffafe;
   --accent-foreground: #ffffff;
-  --ring: #a78bfa;
+  --ring: #0891b2;
   color-scheme: light;
 }
 
@@ -25,10 +25,10 @@ html.dark {
   --border: #27272a;
   --muted: #18181b;
   --muted-foreground: #a1a1aa;
-  --accent: #a78bfa;
-  --accent-soft: #2a1d4f;
+  --accent: #22d3ee;
+  --accent-soft: #164e63;
   --accent-foreground: #0a0a0b;
-  --ring: #8b5cf6;
+  --ring: #06b6d4;
   color-scheme: dark;
 }
 
@@ -56,6 +56,30 @@ html,
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      1000px 800px at 0% 0%,
+      color-mix(in oklab, var(--accent) 24%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      1200px 900px at 100% 25%,
+      color-mix(in oklab, var(--accent) 17%, transparent),
+      transparent 65%
+    ),
+    radial-gradient(
+      900px 700px at 50% 100%,
+      color-mix(in oklab, var(--accent) 13%, transparent),
+      transparent 60%
+    );
 }
 
 body {
