@@ -1,23 +1,30 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { ViewTransition } from "react";
 import { DemoFrame } from "./DemoFrame";
 import type { Example } from "@/lib/types";
 
 export function ExampleCard({ example }: { example: Example }) {
   const { Demo } = example;
+  const transitionName = `demo-${example.category}-${example.slug}`;
+  const titleName = `title-${example.category}-${example.slug}`;
   return (
     <Link
       href={`/${example.category}/${example.slug}`}
       className="group flex flex-col gap-4"
     >
-      <DemoFrame className="h-[220px] transition-colors duration-150 group-hover:border-accent/40">
-        <Demo />
-      </DemoFrame>
+      <ViewTransition name={transitionName}>
+        <DemoFrame className="h-[220px] transition-colors duration-150 group-hover:border-accent/40">
+          <Demo />
+        </DemoFrame>
+      </ViewTransition>
       <div className="flex items-start justify-between gap-3">
         <div className="flex flex-col gap-1.5">
-          <h3 className="text-sm font-medium tracking-tight text-foreground">
-            {example.title}
-          </h3>
+          <ViewTransition name={titleName}>
+            <h3 className="text-sm font-medium tracking-tight text-foreground">
+              {example.title}
+            </h3>
+          </ViewTransition>
           <p className="text-xs leading-relaxed text-muted-foreground">
             {example.description}
           </p>

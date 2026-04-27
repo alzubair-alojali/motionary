@@ -80,6 +80,17 @@ body::before {
       color-mix(in oklab, var(--accent) 13%, transparent),
       transparent 60%
     );
+  animation: atmosphere-drift 32s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes atmosphere-drift {
+  from {
+    transform: translate3d(-1.5%, -0.8%, 0);
+  }
+  to {
+    transform: translate3d(1.5%, 0.8%, 0);
+  }
 }
 
 body {
@@ -108,6 +119,27 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* View transitions: slow morphs slightly so they read; anchor the header */
+::view-transition-group(*) {
+  animation-duration: 350ms;
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
 }
 
 .demo-grid-bg {

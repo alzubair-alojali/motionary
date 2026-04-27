@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DemoFrame } from "@/components/DemoFrame";
+import { MagneticGlowText } from "@/components/MagneticGlowText";
 import { getCategories, getExample } from "@/lib/content";
 
 export default function Home() {
@@ -27,17 +28,7 @@ export default function Home() {
             <h1 className="text-5xl font-semibold leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[88px]">
               Motion patterns
               <br />
-              <span className="relative inline-block text-accent">
-                for developers.
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 -bottom-2 -z-10 h-12 blur-2xl"
-                  style={{
-                    background:
-                      "color-mix(in oklab, var(--accent) 40%, transparent)",
-                  }}
-                />
-              </span>
+              <MagneticGlowText>for developers.</MagneticGlowText>
             </h1>
 
             <p className="max-w-xl text-base text-muted-foreground sm:text-lg">

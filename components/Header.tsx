@@ -22,7 +22,10 @@ const pillHover = "hover:bg-surface hover:text-foreground";
 
 export function Header() {
   return (
-    <header className="pointer-events-none sticky top-4 z-40 px-4 sm:px-8 lg:px-12">
+    <header
+      style={{ viewTransitionName: "site-header" }}
+      className="pointer-events-none sticky top-4 z-40 px-4 sm:px-8 lg:px-12"
+    >
       <div className="pointer-events-auto flex items-center justify-between gap-3">
         <Link
           href="/"

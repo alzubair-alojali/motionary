@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import { DemoFrame } from "@/components/DemoFrame";
 import { ReplayButton } from "@/components/ReplayButton";
@@ -34,6 +35,8 @@ export default async function ExamplePage(
   if (!example || !category) notFound();
 
   const { Demo } = example;
+  const transitionName = `demo-${category.slug}-${example.slug}`;
+  const titleName = `title-${category.slug}-${example.slug}`;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
@@ -49,19 +52,23 @@ export default async function ExamplePage(
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
           {category.title}
         </p>
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          {example.title}
-        </h1>
+        <ViewTransition name={titleName}>
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            {example.title}
+          </h1>
+        </ViewTransition>
         <p className="max-w-2xl text-base text-muted-foreground">
           {example.description}
         </p>
       </div>
 
       <div className="relative mt-10">
-        <DemoFrame className="h-[420px] sm:h-[480px]">
-          <Demo />
-          <ReplayButton className="absolute right-3 top-3" />
-        </DemoFrame>
+        <ViewTransition name={transitionName}>
+          <DemoFrame className="h-[420px] sm:h-[480px]">
+            <Demo />
+            <ReplayButton className="absolute right-3 top-3" />
+          </DemoFrame>
+        </ViewTransition>
       </div>
 
       <section className="mt-12">
