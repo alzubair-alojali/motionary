@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { ThemedToaster } from "@/components/ThemedToaster";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 const SITE_URL =
@@ -22,11 +23,11 @@ const SITE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Motionary — Motion patterns for developers",
+    default: "Motionary — An Observational Field Guide to Interface Motion",
     template: "%s · Motionary",
   },
   description:
-    "A reference library of motion patterns. Each entry pairs a live demo with a copy-ready AI prompt for your coding agent.",
+    "A long-exposure catalogue of interface motion patterns. Eighteen specimens, observed at the limits of sensitivity, with the prompts that produce each one preserved as field notes.",
   openGraph: {
     type: "website",
     siteName: "Motionary",
@@ -37,8 +38,6 @@ export const metadata: Metadata = {
   },
 };
 
-const themeInitScript = `(function(){try{var t=localStorage.getItem('theme')||'dark';if(t==='dark')document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})();`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -47,19 +46,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${fraunces.variable} ${jetbrainsMono.variable}`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body className="flex min-h-screen flex-col antialiased">
-        <ThemeProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ThemedToaster />
-        </ThemeProvider>
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );
