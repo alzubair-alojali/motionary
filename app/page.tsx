@@ -17,7 +17,7 @@ export default function Home() {
         </p>
 
         <Viewfinder className="mt-10 w-full max-w-[480px] sm:mt-14">
-          <h1 className="font-display text-6xl italic leading-none tracking-tight text-paper sm:text-7xl lg:text-8xl">
+          <h1 className="font-display text-5xl italic leading-none tracking-tight text-paper break-words sm:text-7xl lg:text-8xl">
             Motionary
           </h1>
         </Viewfinder>

@@ -7,7 +7,7 @@ export default function NotFound() {
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
           NO SIGNAL · 404
         </p>
-        <h1 className="font-display text-6xl italic leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-8xl">
+        <h1 className="font-display text-4xl italic leading-[0.95] tracking-tight text-paper break-words sm:text-6xl lg:text-7xl">
           Specimen not on plate.
         </h1>
         <p className="max-w-md font-display text-lg italic leading-relaxed text-paper-2">

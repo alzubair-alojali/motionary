@@ -71,7 +71,7 @@ export default async function ExamplePage(
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
             SPECIMEN {ordinal}
           </p>
-          <h1 className="mt-4 font-display text-6xl italic leading-[0.95] tracking-tight text-paper sm:text-8xl lg:text-[112px]">
+          <h1 className="mt-4 font-display text-4xl italic leading-[0.95] tracking-tight text-paper break-words sm:text-6xl lg:text-8xl xl:text-[112px]">
             {example.title}
           </h1>
           <p className="mt-6 max-w-2xl font-display text-xl italic leading-relaxed text-paper-2">

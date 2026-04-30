@@ -31,7 +31,7 @@ export function CategoryCard({ category, index = 1 }: CategoryCardProps) {
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper-3">
             FIELD {ordinal} · {count} SPECIMENS
           </span>
-          <h3 className="font-display text-5xl italic leading-[0.95] tracking-tight text-paper sm:text-6xl lg:text-7xl">
+          <h3 className="font-display text-4xl italic leading-[0.95] tracking-tight text-paper break-words sm:text-5xl lg:text-7xl">
             {category.title}
           </h3>
           <p className="max-w-md font-display text-lg italic leading-relaxed text-paper-2">

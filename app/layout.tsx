@@ -54,7 +54,7 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="flex min-h-screen flex-col antialiased">
+      <body className="flex min-h-screen flex-col overflow-x-clip antialiased">
         <StarField />
         <Header />
         <CornerTelemetry />

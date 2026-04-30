@@ -47,7 +47,7 @@ export default async function CategoryPage(props: PageProps<"/[category]">) {
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
             FIELD {ordinal} · {count} SPECIMENS
           </p>
-          <h1 className="font-display text-6xl italic leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-8xl">
+          <h1 className="font-display text-4xl italic leading-[0.95] tracking-tight text-paper break-words sm:text-6xl lg:text-7xl xl:text-8xl">
             {category.title}
           </h1>
           <p className="max-w-2xl font-display text-xl italic leading-relaxed text-paper-2 sm:text-2xl">
