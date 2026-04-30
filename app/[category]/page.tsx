@@ -66,6 +66,7 @@ export default async function CategoryPage(props: PageProps<"/[category]">) {
           </div>
         </header>
 
+        <h2 className="sr-only">Specimens in this field</h2>
         <div>
           {category.examples.map((example, i) => (
             <ExampleCard

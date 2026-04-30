@@ -1,6 +1,9 @@
 export function Footer() {
   return (
-    <footer className="pointer-events-none fixed bottom-4 left-4 right-4 z-30 flex items-end justify-between gap-6 select-none font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-paper-3 sm:bottom-6 sm:left-6 sm:right-6">
+    <footer
+      aria-hidden="true"
+      className="pointer-events-none fixed bottom-4 left-4 right-4 z-30 flex items-end justify-between gap-6 select-none font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-paper-3 sm:bottom-6 sm:left-6 sm:right-6"
+    >
       <div>
         <div>RA · 14H 32M 00S</div>
         <div>DEC · −42°17′00″</div>

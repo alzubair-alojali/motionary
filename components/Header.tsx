@@ -9,8 +9,8 @@ export function Header() {
         className="pointer-events-auto block transition-colors hover:text-paper"
       >
         <div className="text-paper-2">MOTIONARY</div>
-        <div>VOL. I · MMXXVI</div>
-        <div>FIELD GUIDE TO INTERFACE MOTION</div>
+        <div aria-hidden="true">VOL. I · MMXXVI</div>
+        <div aria-hidden="true">FIELD GUIDE TO INTERFACE MOTION</div>
       </Link>
     </header>
   );

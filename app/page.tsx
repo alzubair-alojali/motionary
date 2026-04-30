@@ -67,9 +67,9 @@ export default function Home() {
         className="mx-auto max-w-6xl scroll-mt-32 pb-40 pt-12 sm:pb-48"
       >
         <div className="mb-12 flex items-end justify-between gap-6 border-b border-rule pb-6 sm:mb-16">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
+          <h2 className="font-mono text-[10px] font-normal uppercase tracking-[0.22em] text-paper-3">
             THE SIX FIELDS
-          </p>
+          </h2>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
             06 / 18
           </p>
