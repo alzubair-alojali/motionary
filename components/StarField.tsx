@@ -11,6 +11,27 @@ interface Star {
   bright: number;
 }
 
+const TARGET_FPS = 30;
+const FRAME_INTERVAL = 1000 / TARGET_FPS;
+
+function readPaperRgb(): string {
+  // Read the canonical foreground token so the starfield follows the design
+  // system if the value ever changes. Defaults to D4's field-cream if the
+  // CSS variable is unavailable (SSR fallback / first paint edge case).
+  if (typeof window === "undefined") return "244, 239, 227";
+  const raw = getComputedStyle(document.documentElement)
+    .getPropertyValue("--paper")
+    .trim();
+  if (!raw) return "244, 239, 227";
+  const hex = raw.replace("#", "");
+  if (hex.length !== 6) return "244, 239, 227";
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  if ([r, g, b].some((c) => Number.isNaN(c))) return "244, 239, 227";
+  return `${r}, ${g}, ${b}`;
+}
+
 export function StarField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -24,6 +45,7 @@ export function StarField() {
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const fillRgb = readPaperRgb();
 
     let stars: Star[] = [];
     let width = 0;
@@ -65,13 +87,13 @@ export function StarField() {
 
         ctx.beginPath();
         ctx.arc(x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(244, 239, 227, ${alpha})`;
+        ctx.fillStyle = `rgba(${fillRgb}, ${alpha})`;
         ctx.fill();
 
         if (s.bright > 0.85) {
           ctx.beginPath();
           ctx.arc(x, s.y, s.r * 3.2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(244, 239, 227, ${alpha * 0.16})`;
+          ctx.fillStyle = `rgba(${fillRgb}, ${alpha * 0.16})`;
           ctx.fill();
         }
       }
@@ -79,15 +101,22 @@ export function StarField() {
 
     let raf = 0;
     let running = false;
+    let lastFrame = 0;
 
     const loop = (t: number) => {
-      draw(t);
+      // Frame-rate-limit to TARGET_FPS. Stellar drift is slow enough that
+      // 30 fps reads identically to 60 fps; the redraw work halves.
+      if (t - lastFrame >= FRAME_INTERVAL) {
+        draw(t);
+        lastFrame = t;
+      }
       raf = requestAnimationFrame(loop);
     };
 
     const start = () => {
       if (running || reduce) return;
       running = true;
+      lastFrame = 0;
       raf = requestAnimationFrame(loop);
     };
 
