@@ -27,7 +27,7 @@ export default function OpengraphImage() {
             justifyContent: "space-between",
             fontFamily: "ui-monospace, monospace",
             fontSize: 18,
-            color: "#6e6a5e",
+            color: "#8c8878",
             textTransform: "uppercase",
             letterSpacing: "4px",
           }}
@@ -98,7 +98,7 @@ export default function OpengraphImage() {
             justifyContent: "space-between",
             fontFamily: "ui-monospace, monospace",
             fontSize: 16,
-            color: "#6e6a5e",
+            color: "#8c8878",
             textTransform: "uppercase",
             letterSpacing: "4px",
           }}

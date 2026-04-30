@@ -74,7 +74,7 @@ fundamentally about a paper-on-void register.
 | Inset | `#161922` (--void-3) | Toaster surface, deeper wells |
 | Foreground | `#F4EFE3` (--paper) | Display text, viewfinder ink |
 | Secondary | `#C9C2B0` (--paper-2) | Body text, italic |
-| Muted | `#6E6A5E` (--paper-3) | Mono labels, telemetry |
+| Muted | `#8C8878` (--paper-3) | Mono labels, telemetry (5.44:1 on void, AA-passing) |
 | Border | `#2A2E36` (--rule) | Hairline rules |
 | Border (deep) | `#1E2128` (--rule-2) | Quieter divisions |
 | Accent | `oklch(0.86 0.06 220)` (--star) | Cool-blue interactive accent — hover, active, focus |

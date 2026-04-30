@@ -7,7 +7,7 @@ colors:
   halo-well: "#161922"
   field-cream: "#F4EFE3"
   aged-cream: "#C9C2B0"
-  telemetry: "#6E6A5E"
+  telemetry: "#8C8878"
   hairline: "#2A2E36"
   underrule: "#1E2128"
   cool-star: "oklch(0.86 0.06 220)"
@@ -171,9 +171,11 @@ CSS; everything else is hex.
   pure white; always tinted toward warm.
 - **Aged Cream** (`#C9C2B0`): Secondary text. Italic body paragraphs,
   hover-state telemetry, the second tier of corner stamps.
-- **Telemetry** (`#6E6A5E`): Mono labels at rest. Field/specimen
+- **Telemetry** (`#8C8878`): Mono labels at rest. Field/specimen
   ordinals, observation logs, tag rows, the `TRANSITION · LOCKED` overlay
-  text. The default voice of every label on the site.
+  text. The default voice of every label on the site. Tuned to 5.44 : 1
+  contrast against `plate-black` so 10 px small caps clear WCAG AA at
+  normal-text sensitivity.
 - **Hairline** (`#2A2E36`): The 1px rule between sections, the rule
   beneath section headers, the border on specimen discs at rest.
 - **Underrule** (`#1E2128`): A quieter division for double-stacked
