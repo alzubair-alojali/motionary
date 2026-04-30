@@ -1,0 +1,144 @@
+# Motionary — Design Context
+
+A reference library of motion patterns (transitions, hover effects, scroll
+animations, micro-interactions, loading states, text animations) for
+developers. Each entry pairs a live demo with a copy-ready AI prompt that can
+be pasted into a coding agent.
+
+## Register
+
+brand
+
+## Design Context
+
+### Users
+
+**Primary**: Developers building modern web UIs — frontend engineers, design
+engineers, indie hackers — many of whom drive AI coding agents (Claude, Cursor,
+v0) to scaffold features. They arrive looking for a specific motion pattern,
+want to see it move, and want to grab the prompt and go.
+
+**Context of use**: Mid-task, not exploratory browsing. They have a feature in
+mind and need a fast, accurate motion reference. Time-on-page is short.
+"Browse → recognise → copy → leave" should feel friction-free.
+
+**Job-to-be-done**:
+1. Browse a field, scan motion in real time, recognise what they need
+2. Open the specimen, watch it loop, confirm it's right
+3. Copy the field notes (prompt) and leave
+
+### Brand Personality
+
+**Three words**: Technical · Premium · Modern.
+
+**Voice**: Developer-direct, with a small editorial register. The labels read
+like the spine of a printed reference book — "Field 03 · 03 specimens",
+"Specimen 07", "Field notes" — never marketing. No exclamation, no emoji.
+
+**Emotional target**: The confidence of a printed field guide. Quiet, exact,
+made by people who care about craft.
+
+### Aesthetic Direction — Long Exposure (D4)
+
+Motionary's surface is an **observatory field guide**. The metaphor is
+long-exposure astrophotography: dark plates, paper-cream type, telemetry
+stamps in the corners, a single circular viewfinder framing the wordmark, and
+specimen discs that hold each motion pattern like a collected object on a
+plate.
+
+**Theme**: Dark only. Light mode was removed — the long-exposure language is
+fundamentally about a paper-on-void register.
+
+**Reference (good)**:
+- Long-exposure astrophotography (NASA / observatory plates)
+- Editorial typography — Fraunces italic display set against monospace
+  metadata, like a science journal
+- The viewfinder / sextant / instrument-panel vocabulary
+
+**Anti-references**:
+
+- Heavy 3D chrome / liquid-metal / generic AI-orb hero art
+- Glassmorphism overload, neon halos, gradient text
+- Cyberpunk neon — too 2010s
+- Stock space imagery layered on a generic dev-tool grid
+- Cluttered AI-startup landing-page templates
+- Material Design density and elevation
+- Generic Tailwind starters (slate-900 + indigo-500 + zero personality)
+
+**Color palette** (D4 tokens):
+
+| Role | Value | Usage |
+|---|---|---|
+| Background | `#0B0D12` (--void) | Primary surface |
+| Raised | `#11141A` (--void-2) | Specimen disc / inset |
+| Inset | `#161922` (--void-3) | Toaster surface, deeper wells |
+| Foreground | `#F4EFE3` (--paper) | Display text, viewfinder ink |
+| Secondary | `#C9C2B0` (--paper-2) | Body text, italic |
+| Muted | `#6E6A5E` (--paper-3) | Mono labels, telemetry |
+| Border | `#2A2E36` (--rule) | Hairline rules |
+| Border (deep) | `#1E2128` (--rule-2) | Quieter divisions |
+| Accent | `oklch(0.86 0.06 220)` (--star) | Cool-blue interactive accent — hover, active, focus |
+| Warm accent | `oklch(0.62 0.10 50)` (--safelight) | Sparingly — alerts, critical highlights |
+
+The accent is reserved: hover states on category plates and specimen discs,
+the focus ring, the small bullet on the "TRACKING" status, the warp-overlay
+hairline. Surfaces stay quiet so motion is the loudest thing on the page.
+
+**Typography**:
+
+- **Fraunces** — display + literary blocks. Used italic for the wordmark,
+  page titles, and field-note copy. Weight 400–700, opsz aware.
+- **JetBrains Mono** — body default, all metadata, telemetry stamps, labels,
+  copy buttons. Weight 300–500, often set in small caps with letter-spacing
+  `0.18em` to `0.22em`.
+
+The contrast between massive italic display (60–112 px on detail pages) and
+10 px small-caps mono labels carries the editorial register.
+
+**Surface treatments**:
+
+- Hairline 1px rules (`--rule`) between sections, never harsh
+- Borders: `border-paper-3/40` on specimen discs, `border-rule` on dividers
+- Specimen surface: `rounded-full` discs over `--void-2`
+- Buttons: square corners, hairline borders, mono small caps
+- Toaster: `--void-3` ground with a 2px `--star` left edge — square corners,
+  no rounded-2xl, no chrome
+- Star field canvas at the page level — fixed, drifting at sidereal speed,
+  paused under reduced motion
+
+**Motion of the chrome itself** (the site, not the demos):
+
+- Hover on cards: scale 1.03, border tint to `--star`, 500 ms with
+  `cubic-bezier(0.65, 0, 0.35, 1)`
+- Warp route transition: blur(8 px) + brightness(0.65) + scale(0.985) on
+  `<main>` for 360 ms; `.warp-overlay` opacity fades in for 300 ms; total
+  body class lifespan 920 ms
+- Star field: RAF drift at viewport scale, individual brightness pulse,
+  bright-star halo
+- Sidereal clock: 1 Hz LST mono readout, top-right corner stamp
+- `prefers-reduced-motion`: stars stop, warp degrades to 200 ms opacity dip,
+  every demo collapses to its static end-state per its `useReducedMotion()`
+  branch
+
+### Design Principles
+
+1. **Motion is the message.** The site itself demonstrates the craft. The
+   warp transition, the drifting starfield, the ticking sidereal clock — all
+   choices that say "this is a place where motion is taken seriously."
+
+2. **Premium restraint.** Quiet surfaces, loud motion. Two typefaces, one
+   accent, hairline rules. When in doubt, remove a layer.
+
+3. **Developer-direct copy with editorial cadence.** Labels are short and
+   precise; long copy reads like a science journal. "Field notes" beats
+   "AI prompt"; "specimen" beats "card"; "field" beats "category". Always
+   intentional, never cute.
+
+4. **One focal subject per view.** Home: the viewfinder hero, then the
+   six-field index. Field page: the title, then specimens. Specimen page:
+   the disc, then the field notes. No competing CTAs above the fold.
+
+5. **Accessible by default.** `prefers-reduced-motion` is honored on day one
+   (warp, starfield, demos). All chrome interactives are 44 × 44 minimum.
+   Focus indicator is `2 px solid var(--star)` with 2 px offset on every
+   focusable element.

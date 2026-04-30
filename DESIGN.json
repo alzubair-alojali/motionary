@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-27T00:00:00Z",
+  "title": "Design System: Motionary",
+  "extensions": {
+    "colorMeta": {
+      "plate-black": {
+        "role": "neutral",
+        "displayName": "Plate Black",
+        "canonical": "oklch(0.13 0.005 240)",
+        "tonalRamp": [
+          "#06070B",
+          "#0B0D12",
+          "#11141A",
+          "#161922",
+          "#1E2128",
+          "#2A2E36",
+          "#3A3E47",
+          "#4F5460"
+        ]
+      },
+      "astrograph": {
+        "role": "neutral",
+        "displayName": "Astrograph",
+        "canonical": "oklch(0.16 0.005 240)",
+        "tonalRamp": [
+          "#0B0D12",
+          "#11141A",
+          "#161922",
+          "#1E2128",
+          "#2A2E36",
+          "#3A3E47",
+          "#4F5460",
+          "#666B78"
+        ]
+      },
+      "halo-well": {
+        "role": "neutral",
+        "displayName": "Halo Well",
+        "canonical": "oklch(0.18 0.005 240)",
+        "tonalRamp": [
+          "#11141A",
+          "#161922",
+          "#1E2128",
+          "#2A2E36",
+          "#3A3E47",
+          "#4F5460",
+          "#666B78",
+          "#7E8390"
+        ]
+      },
+      "field-cream": {
+        "role": "neutral",
+        "displayName": "Field Cream",
+        "canonical": "oklch(0.95 0.012 80)",
+        "tonalRamp": [
+          "#5F5C53",
+          "#7C786D",
+          "#9B978A",
+          "#B8B3A6",
+          "#D2CDC1",
+          "#E5E0D5",
+          "#F4EFE3",
+          "#FBF7EE"
+        ]
+      },
+      "aged-cream": {
+        "role": "neutral",
+        "displayName": "Aged Cream",
+        "canonical": "oklch(0.80 0.012 80)",
+        "tonalRamp": [
+          "#4F4D45",
+          "#67645B",
+          "#7F7C72",
+          "#9B978A",
+          "#B5B0A2",
+          "#C9C2B0",
+          "#DBD5C5",
+          "#ECE6D7"
+        ]
+      },
+      "telemetry": {
+        "role": "neutral",
+        "displayName": "Telemetry",
+        "canonical": "oklch(0.50 0.008 80)",
+        "tonalRamp": [
+          "#26241F",
+          "#36342D",
+          "#48453D",
+          "#5B584F",
+          "#6E6A5E",
+          "#82806F",
+          "#979481",
+          "#ADAA94"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.30 0.008 240)",
+        "tonalRamp": [
+          "#0E1116",
+          "#161922",
+          "#1E2128",
+          "#2A2E36",
+          "#3A3E47",
+          "#4F5460",
+          "#666B78",
+          "#7E8390"
+        ]
+      },
+      "underrule": {
+        "role": "neutral",
+        "displayName": "Underrule",
+        "canonical": "oklch(0.22 0.008 240)",
+        "tonalRamp": [
+          "#0B0D12",
+          "#11141A",
+          "#161922",
+          "#1E2128",
+          "#2A2E36",
+          "#3A3E47",
+          "#4F5460",
+          "#666B78"
+        ]
+      },
+      "cool-star": {
+        "role": "primary",
+        "displayName": "Cool Star",
+        "canonical": "oklch(0.86 0.06 220)",
+        "tonalRamp": [
+          "oklch(0.30 0.04 220)",
+          "oklch(0.42 0.05 220)",
+          "oklch(0.54 0.055 220)",
+          "oklch(0.66 0.06 220)",
+          "oklch(0.74 0.06 220)",
+          "oklch(0.80 0.06 220)",
+          "oklch(0.86 0.06 220)",
+          "oklch(0.94 0.04 220)"
+        ]
+      },
+      "safelight-amber": {
+        "role": "secondary",
+        "displayName": "Safelight Amber",
+        "canonical": "oklch(0.62 0.10 50)",
+        "tonalRamp": [
+          "oklch(0.22 0.05 50)",
+          "oklch(0.34 0.07 50)",
+          "oklch(0.46 0.09 50)",
+          "oklch(0.55 0.10 50)",
+          "oklch(0.62 0.10 50)",
+          "oklch(0.72 0.09 50)",
+          "oklch(0.82 0.07 50)",
+          "oklch(0.92 0.04 50)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Specimen titles on detail pages. The largest single thing on any page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Field titles and the home wordmark inside the viewfinder."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Specimen entry names in the field index, 'Field notes' section heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Italic descriptions, eyebrow taglines, field-note prompt blocks. Capped at 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Every chrome label, breadcrumb, button, ordinal, telemetry stamp."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Specimen tag rows and the metadata band on detail pages."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-warp",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Default ease for warp transitions, hover scales, and chrome state changes."
+      },
+      {
+        "name": "ease-viewfinder",
+        "value": "cubic-bezier(0.7, 0, 0.2, 1)",
+        "purpose": "Reserved for slower instrument movements (warp viewfinder rotation)."
+      },
+      {
+        "name": "duration-instant",
+        "value": "150ms",
+        "purpose": "Hairline color shifts on hover."
+      },
+      {
+        "name": "duration-state",
+        "value": "300ms",
+        "purpose": "Default chrome state transitions (button hover, opacity fades)."
+      },
+      {
+        "name": "duration-warp",
+        "value": "360ms",
+        "purpose": "Main blur+dim during route warp transition."
+      },
+      {
+        "name": "duration-disc",
+        "value": "500ms",
+        "purpose": "Specimen disc hover scale + border tint."
+      },
+      {
+        "name": "duration-warp-cycle",
+        "value": "920ms",
+        "purpose": "Total lifespan of the body.warping class during a route change."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Command Button",
+      "kind": "button",
+      "refersTo": "button-command",
+      "description": "Primary chrome button. Square corners, mono small caps, hairline border. Used as 'Copy field notes' on detail pages.",
+      "html": "<button class=\"ds-btn-command\" type=\"button\">[ ↵ ] COPY FIELD NOTES</button>",
+      "css": ".ds-btn-command { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; background: transparent; color: #F4EFE3; border: 1px solid rgba(110, 106, 94, 0.5); border-radius: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.2em; cursor: pointer; transition: color 200ms cubic-bezier(0.65, 0, 0.35, 1), border-color 200ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn-command:hover { color: oklch(0.86 0.06 220); border-color: oklch(0.86 0.06 220); } .ds-btn-command:active { transform: translateY(1px); } .ds-btn-command:focus-visible { outline: 2px solid oklch(0.86 0.06 220); outline-offset: 2px; }"
+    },
+    {
+      "name": "Replay Overlay Button",
+      "kind": "button",
+      "refersTo": "button-replay",
+      "description": "Smaller overlay command. Sits at the corner of a specimen disc on detail pages.",
+      "html": "<button class=\"ds-btn-replay\" type=\"button\"><span aria-hidden=\"true\">⟲</span> RE-OBSERVE</button>",
+      "css": ".ds-btn-replay { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; background: rgba(22, 25, 34, 0.7); color: #C9C2B0; border: 1px solid rgba(110, 106, 94, 0.5); border-radius: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.2em; backdrop-filter: blur(4px); cursor: pointer; transition: color 200ms cubic-bezier(0.65, 0, 0.35, 1), border-color 200ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn-replay:hover { color: oklch(0.86 0.06 220); border-color: oklch(0.86 0.06 220); } .ds-btn-replay:focus-visible { outline: 2px solid oklch(0.86 0.06 220); outline-offset: 2px; }"
+    },
+    {
+      "name": "Specimen Disc",
+      "kind": "card",
+      "refersTo": "specimen-disc",
+      "description": "Circular plate that holds a single motion pattern's live demo. Hover-scaled when used inside a group; static on detail pages.",
+      "html": "<div class=\"ds-specimen-group\"><div class=\"ds-specimen-disc\" aria-hidden=\"true\"><div class=\"ds-specimen-content\">DEMO</div></div></div>",
+      "css": ".ds-specimen-group { display: inline-block; } .ds-specimen-disc { position: relative; width: 220px; height: 220px; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 9999px; border: 1px solid rgba(110, 106, 94, 0.4); background: #11141A; transition: transform 500ms cubic-bezier(0.65, 0, 0.35, 1), border-color 500ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-specimen-group:hover .ds-specimen-disc { transform: scale(1.03); border-color: rgba(146, 196, 232, 0.7); } .ds-specimen-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.22em; color: #6E6A5E; }"
+    },
+    {
+      "name": "Field Plate Heading",
+      "kind": "card",
+      "refersTo": "field-plate",
+      "description": "Editorial title block of a field (category) on the home page index. No card chrome; typography on the plate-black surface.",
+      "html": "<a class=\"ds-field-plate\" href=\"#\"><span class=\"ds-field-ordinal\">FIELD 01 · 03 SPECIMENS</span><h3 class=\"ds-field-title\">Hover Effects</h3><p class=\"ds-field-desc\">Cursor-driven feedback that makes interfaces feel alive and responsive.</p><span class=\"ds-field-cta\">Enter field <span aria-hidden=\"true\">→</span></span></a>",
+      "css": ".ds-field-plate { display: flex; flex-direction: column; gap: 16px; padding: 48px 0; text-decoration: none; cursor: pointer; } .ds-field-ordinal { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.18em; color: #6E6A5E; } .ds-field-title { margin: 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 0.95; letter-spacing: -0.015em; color: #F4EFE3; } .ds-field-desc { margin: 0; max-width: 28rem; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.125rem; line-height: 1.6; color: #C9C2B0; } .ds-field-cta { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.2em; color: #6E6A5E; transition: color 300ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-field-plate:hover .ds-field-cta { color: oklch(0.86 0.06 220); }"
+    },
+    {
+      "name": "Toast",
+      "kind": "card",
+      "refersTo": "toast",
+      "description": "Telemetry-stamp toast for transient feedback. Square corners, 2px cool-star left edge.",
+      "html": "<div class=\"ds-toast\" role=\"status\">FIELD NOTES COPIED</div>",
+      "css": ".ds-toast { display: inline-block; padding: 12px 16px; background: #161922; border: 1px solid #2A2E36; border-left: 2px solid oklch(0.86 0.06 220); border-radius: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.14em; color: #F4EFE3; }"
+    },
+    {
+      "name": "Corner Telemetry Stamp",
+      "kind": "nav",
+      "description": "Top-right fixed corner stamp showing observatory station, conditions, and the live sidereal clock. Mirrored at top-left as the wordmark stamp.",
+      "html": "<div class=\"ds-telemetry-stamp\" aria-hidden=\"true\"><div>OBSERVATORY · ATACAMA STATION</div><div>SEEING 0.6&quot; · CLEAR</div><div>SIDEREAL <span class=\"ds-clock\">17:11:02</span></div></div>",
+      "css": ".ds-telemetry-stamp { position: fixed; top: 24px; right: 24px; text-align: right; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 400; line-height: 1.6; text-transform: uppercase; letter-spacing: 0.18em; color: #6E6A5E; pointer-events: none; user-select: none; } .ds-telemetry-stamp > div:first-child { color: #C9C2B0; } .ds-clock { color: #C9C2B0; }"
+    },
+    {
+      "name": "Viewfinder",
+      "kind": "custom",
+      "description": "SVG circular bezel with N/E/S/W coordinate markers. Used at hero scale on the home page; smaller bezel around specimen discs on detail pages.",
+      "html": "<div class=\"ds-viewfinder\" aria-hidden=\"true\"><svg viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"49.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.18\" opacity=\"0.55\"/><circle cx=\"50\" cy=\"50\" r=\"36\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.12\" opacity=\"0.25\" stroke-dasharray=\"0.6 1.2\"/><text x=\"50\" y=\"6.5\" text-anchor=\"middle\" font-size=\"2.6\" fill=\"currentColor\" opacity=\"0.75\">N · 00°</text><text x=\"94.5\" y=\"51\" text-anchor=\"end\" font-size=\"2.6\" fill=\"currentColor\" opacity=\"0.75\">E · 90°</text><text x=\"50\" y=\"96.5\" text-anchor=\"middle\" font-size=\"2.6\" fill=\"currentColor\" opacity=\"0.75\">S · 180°</text><text x=\"5.5\" y=\"51\" text-anchor=\"start\" font-size=\"2.6\" fill=\"currentColor\" opacity=\"0.75\">W · 270°</text></svg></div>",
+      "css": ".ds-viewfinder { position: relative; width: 320px; aspect-ratio: 1 / 1; color: #6E6A5E; font-family: 'JetBrains Mono', ui-monospace, monospace; } .ds-viewfinder svg { position: absolute; inset: 0; width: 100%; height: 100%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Long Exposure",
+    "overview": "Motionary's surface is a long-exposure photographic plate. The dark plate (plate-black) is loaded into the camera back; the wordmark, viewfinder markers, and editorial body sit on top of it as if developed in cool paper ink. Each motion pattern is collected as a circular specimen disc, stamped, telemetry-tagged, and held against the plate the way a botanical illustration sits in a 19th-century field guide. The Atacama corner stamp, the sidereal LST clock ticking at one Hertz, the drifting starfield, and the warp transition between routes all serve one image: a working observatory, recording motion at the limits of sensitivity. The system rejects the usual dev-tool reflexes by name: slate-on-cyan, pill-shaped nav, neon halos, glassmorphism, generic Tailwind starters, AI-orb chrome, gradient text, and 'AI startup landing-page template' energy are prohibited. Two typefaces, one cool-blue interactive accent, hairline rules, square corners on every chrome button. Surfaces stay quiet; motion is loud.",
+    "keyCharacteristics": [
+      "Paper-cream type on a near-black photographic plate, no light mode",
+      "One cool-blue accent (cool-star) used sparingly for hover, focus, active state, and a single tracking dot",
+      "Italic Fraunces display set against JetBrains Mono small caps metadata, like a science journal",
+      "Circular specimen discs frame every motion pattern; nothing is rectangular",
+      "Hairline 1px rules between sections, never harsh borders",
+      "Square-cornered chrome buttons (rounded: 0); the only rounded-full surface is the specimen disc itself",
+      "A drifting starfield, a sidereal LST clock, and corner telemetry stamps run as ambient observatory layer behind every page",
+      "Route changes cue a warp transition: blur, dim, and a 'TRANSITION · LOCKED' overlay; reduced motion collapses it to an opacity dip"
+    ],
+    "rules": [
+      {
+        "name": "The Cool-Star Rule",
+        "body": "The accent (cool-star) appears only as a response to user intent: hover, focus, active, currently-selected state, or the live tracking indicator. It never colors a default surface. If you can't justify it as a state response, remove it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Pure-Black Ban",
+        "body": "#000 is forbidden on every surface. The plate is #0B0D12, never absolute black. The same applies to the warm side: no #FFF ever, only field-cream.",
+        "section": "colors"
+      },
+      {
+        "name": "The Italic-Display Rule",
+        "body": "Display, headline, title, and body roles are always italic Fraunces. Roman Fraunces is forbidden in this system. The italic register is the editorial voice; switching to roman reads as a missing decision.",
+        "section": "typography"
+      },
+      {
+        "name": "The Small-Caps Mono Rule",
+        "body": "Every JetBrains Mono usage is uppercase (via text-transform: uppercase or capital letters in source) with at least 0.18em letter-spacing. Lowercase mono reads as a code listing, not a telemetry stamp.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "No box-shadow on any chrome surface. Specimen discs, field plates, buttons, toasts, viewfinders all live at the surface plane. If you reach for a shadow, you are about to write a different design system.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Tonal-Stack Rule",
+        "body": "When two surfaces sit on top of each other (toast over plate, specimen disc over field plate), step the shade in the direction of the relationship: raised goes one step lighter (astrograph), inset goes one step darker (halo-well). Never use the same tone for stacked surfaces.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep cool-star reserved for state response (hover, focus, active, live tracking). Never use it on a default surface.",
+      "Do set every chrome button at 44 × 44 minimum hit area.",
+      "Do use square corners on every chrome button (rounded: 0). The specimen disc is the only rounded-full element in the system.",
+      "Do use 1 px hairline rules between sections, never thicker borders.",
+      "Do italicize every Fraunces usage. Roman Fraunces does not exist in this system.",
+      "Do uppercase every JetBrains Mono usage with at least 0.18em letter-spacing.",
+      "Do honor prefers-reduced-motion in every motion: starfield pauses, warp collapses to a 200ms opacity fade, demos collapse to their static end-state.",
+      "Do keep body copy at 65-75ch; field-note prompts cap at 68ch on the detail page.",
+      "Do vary spacing rhythm: 8 / 16 / 24 / 48 / 80 / 128. Same padding everywhere reads as monotony."
+    ],
+    "donts": [
+      "Don't use light mode. The long-exposure register is fundamentally paper-on-void; light mode would dilute the metaphor.",
+      "Don't use #000 or #fff. The plate is plate-black (#0B0D12); the ink is field-cream (#F4EFE3).",
+      "Don't ship gradient text. Use a single solid color and emphasize via weight or size.",
+      "Don't apply glassmorphism decoratively. Backdrop-blur exists on the replay button and the warp overlay; nowhere else.",
+      "Don't use box-shadow anywhere in the chrome. The Flat-By-Default Rule applies.",
+      "Don't use side-stripe borders greater than 1 px. The toast's 2 px cool-star left edge is the single explicit exception.",
+      "Don't ship 'AI startup landing-page template' energy: chrome 3D blobs, neon halos, gradient meshes behind hero text, identical card grids of feature bullets.",
+      "Don't use 'Tailwind starter' defaults: slate-900 + indigo-500, rounded-2xl cards, pill nav, badges in the corners of every component.",
+      "Don't add em dashes to copy. Use commas, semicolons, periods, or parentheses.",
+      "Don't wrap demos in nested cards. The specimen disc is the disc; it is not inside another card.",
+      "Don't introduce a third typeface. Fraunces italic + JetBrains Mono is the entire system."
+    ]
+  }
+}
