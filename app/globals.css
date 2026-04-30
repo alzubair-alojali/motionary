@@ -98,7 +98,33 @@ body {
   }
 }
 
-/* Warp route transition — rules added in Phase G */
+/* Warp route transition */
+main {
+  transition:
+    filter 360ms cubic-bezier(0.65, 0, 0.35, 1),
+    transform 360ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
 .warping main {
-  /* placeholder; warp transitions wired in Phase G */
+  filter: blur(8px) brightness(0.65);
+  transform: scale(0.985);
+}
+
+.warp-overlay {
+  transition: opacity 300ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.warping .warp-overlay {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main {
+    transition: opacity 200ms ease;
+  }
+  .warping main {
+    filter: none;
+    transform: none;
+    opacity: 0.6;
+  }
 }

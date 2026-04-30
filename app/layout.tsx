@@ -6,6 +6,7 @@ import { CornerTelemetry } from "@/components/CornerTelemetry";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ObservatoryToaster } from "@/components/ObservatoryToaster";
+import { WarpController } from "@/components/WarpController";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -59,6 +60,7 @@ export default function RootLayout({
         <CornerTelemetry />
         <main className="relative flex-1">{children}</main>
         <Footer />
+        <WarpController />
         <ObservatoryToaster />
       </body>
     </html>
