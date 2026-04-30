@@ -10,7 +10,7 @@ interface ViewfinderProps {
 }
 
 export function Viewfinder({
-  size = 540,
+  size,
   className,
   children,
   rings = true,
@@ -18,10 +18,10 @@ export function Viewfinder({
   return (
     <div
       className={cn(
-        "viewfinder relative grid place-items-center text-paper-3",
+        "viewfinder relative grid aspect-square place-items-center text-paper-3",
         className,
       )}
-      style={{ width: size, height: size }}
+      style={size ? { width: size, height: size } : undefined}
     >
       <svg
         viewBox="0 0 100 100"
