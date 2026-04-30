@@ -1,50 +1,54 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 import type { Category } from "@/lib/types";
-import { CategoryPreview } from "./CategoryPreview";
+import { CategoryDisc } from "./CategoryDisc";
 
-export function CategoryCard({ category }: { category: Category }) {
-  const count = category.examples.length;
+interface CategoryCardProps {
+  category: Category;
+  index?: number;
+}
+
+export function CategoryCard({ category, index = 1 }: CategoryCardProps) {
+  const flip = index % 2 === 0;
+  const ordinal = String(index).padStart(2, "0");
+  const count = String(category.examples.length).padStart(2, "0");
+
   return (
-    <Link
-      href={`/${category.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors duration-150 hover:border-accent/40"
-    >
-      <div className="relative h-36 border-b border-border">
+    <Link href={`/${category.slug}`} className="group block py-12 sm:py-16">
+      <div
+        className={cn(
+          "grid items-center gap-10 lg:gap-20",
+          "lg:grid-cols-[1fr_minmax(280px,360px)]",
+          flip && "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1",
+        )}
+      >
         <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(420px 220px at 50% 30%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 60%)",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 demo-grid-bg opacity-60"
-        />
-        <div className="relative flex h-full items-center justify-center">
-          <CategoryPreview slug={category.slug} />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-3 p-5">
-        <div className="flex items-center justify-between">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-            {count} patterns
+          className={cn(
+            "flex flex-col gap-4",
+            flip && "lg:items-end lg:text-right",
+          )}
+        >
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper-3">
+            FIELD {ordinal} · {count} SPECIMENS
           </span>
-          <ArrowUpRight
-            size={16}
-            className="shrink-0 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
-          />
-        </div>
-        <div className="flex flex-col gap-1.5">
-          <h3 className="text-lg font-semibold tracking-tight text-foreground">
+          <h3 className="font-display text-5xl italic leading-[0.95] tracking-tight text-paper sm:text-6xl lg:text-7xl">
             {category.title}
           </h3>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-md font-display text-lg italic leading-relaxed text-paper-2">
             {category.description}
           </p>
+          <span className="mt-3 inline-flex items-center gap-2 self-start font-mono text-[10px] uppercase tracking-[0.2em] text-paper-3 transition-colors duration-300 group-hover:text-star sm:self-auto">
+            Enter field
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </span>
+        </div>
+        <div className="mx-auto">
+          <CategoryDisc seed={index} />
         </div>
       </div>
     </Link>

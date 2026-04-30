@@ -1,39 +1,50 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { ViewTransition } from "react";
 import { DemoFrame } from "./DemoFrame";
 import type { Example } from "@/lib/types";
 
-export function ExampleCard({ example }: { example: Example }) {
+interface ExampleCardProps {
+  example: Example;
+  index?: number;
+}
+
+export function ExampleCard({ example, index = 1 }: ExampleCardProps) {
   const { Demo } = example;
-  const transitionName = `demo-${example.category}-${example.slug}`;
-  const titleName = `title-${example.category}-${example.slug}`;
+  const ordinal = String(index).padStart(2, "0");
+
   return (
     <Link
       href={`/${example.category}/${example.slug}`}
-      className="group flex flex-col gap-4"
+      className="group flex flex-col items-start gap-8 border-t border-rule py-10 transition-colors duration-300 hover:border-paper-3 sm:flex-row sm:items-center sm:gap-16"
     >
-      <ViewTransition name={transitionName}>
-        <DemoFrame className="h-[220px] transition-colors duration-150 group-hover:border-accent/40">
+      <div className="shrink-0">
+        <DemoFrame size={220}>
           <Demo />
         </DemoFrame>
-      </ViewTransition>
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex flex-col gap-1.5">
-          <ViewTransition name={titleName}>
-            <h3 className="text-sm font-medium tracking-tight text-foreground">
-              {example.title}
-            </h3>
-          </ViewTransition>
-          <p className="text-xs leading-relaxed text-muted-foreground">
-            {example.description}
-          </p>
-        </div>
-        <ArrowUpRight
-          size={14}
-          className="mt-1 shrink-0 text-muted-foreground transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
-        />
       </div>
+      <div className="flex flex-1 flex-col gap-3">
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper-3">
+          SPECIMEN {ordinal}
+        </div>
+        <h3 className="font-display text-3xl italic leading-tight tracking-tight text-paper sm:text-4xl">
+          {example.title}
+        </h3>
+        <p className="max-w-md font-display text-base italic leading-relaxed text-paper-2">
+          {example.description}
+        </p>
+        {example.tags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.2em] text-paper-3">
+            {example.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+      <span
+        aria-hidden="true"
+        className="hidden font-mono text-base text-paper-3 transition-all duration-300 group-hover:translate-x-1 group-hover:text-star sm:inline"
+      >
+        →
+      </span>
     </Link>
   );
 }

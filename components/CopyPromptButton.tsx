@@ -1,6 +1,5 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -17,10 +16,10 @@ export function CopyPromptButton({ prompt, className }: CopyPromptButtonProps) {
     try {
       await navigator.clipboard.writeText(prompt);
       setCopied(true);
-      toast.success("Prompt copied");
+      toast.success("Field notes copied");
       window.setTimeout(() => setCopied(false), 1500);
     } catch {
-      toast.error("Couldn't copy — select the text and copy manually");
+      toast.error("Could not copy — select the text manually");
     }
   };
 
@@ -28,17 +27,18 @@ export function CopyPromptButton({ prompt, className }: CopyPromptButtonProps) {
     <button
       type="button"
       onClick={handleCopy}
-      aria-label="Copy prompt to clipboard"
+      aria-label="Copy field notes (AI prompt) to clipboard"
       className={cn(
-        "inline-flex h-11 items-center gap-2 rounded-full",
-        "bg-accent px-5 text-sm font-medium text-accent-foreground",
-        "transition-transform duration-150 hover:scale-[1.02]",
-        "active:scale-[0.98]",
+        "inline-flex h-11 items-center gap-2 border border-paper-3/50 bg-transparent px-5",
+        "font-mono text-[11px] uppercase tracking-[0.2em] text-paper",
+        "transition-colors duration-200",
+        "hover:border-star hover:text-star",
+        "active:translate-y-[1px]",
         className,
       )}
     >
-      {copied ? <Check size={14} /> : <Copy size={14} />}
-      <span>{copied ? "Copied" : "Copy prompt"}</span>
+      <span aria-hidden="true">[ {copied ? "✓" : "↵"} ]</span>
+      <span>{copied ? "Copied" : "Copy field notes"}</span>
     </button>
   );
 }

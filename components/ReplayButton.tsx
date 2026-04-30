@@ -1,6 +1,5 @@
 "use client";
 
-import { RotateCcw } from "lucide-react";
 import { useDemoFrame } from "./DemoFrame";
 import { cn } from "@/lib/utils";
 
@@ -10,17 +9,17 @@ export function ReplayButton({ className }: { className?: string }) {
     <button
       type="button"
       onClick={replay}
-      aria-label="Replay demo"
-      title="Replay"
+      aria-label="Re-observe specimen — replay the demonstration"
       className={cn(
-        "inline-flex h-11 w-11 items-center justify-center rounded-full",
-        "border border-border bg-background/70 text-muted-foreground",
-        "backdrop-blur-sm transition-colors duration-150",
-        "hover:bg-background hover:text-foreground",
+        "inline-flex h-10 items-center gap-2 border border-paper-3/50 bg-void-3/70 px-3",
+        "font-mono text-[10px] uppercase tracking-[0.2em] text-paper-2 backdrop-blur-sm",
+        "transition-colors duration-200",
+        "hover:border-star hover:text-star",
         className,
       )}
     >
-      <RotateCcw size={16} />
+      <span aria-hidden="true">⟲</span>
+      Re-observe
     </button>
   );
 }

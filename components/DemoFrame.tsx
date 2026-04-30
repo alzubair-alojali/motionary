@@ -27,14 +27,17 @@ export function useDemoFrame() {
 interface DemoFrameProps {
   children: ReactNode;
   className?: string;
-  /** Show the grid background (default true). Disable for demos that paint full-bleed. */
-  grid?: boolean;
+  /** Pixel size of the disc (square aspect). Defaults to 100% of the parent. */
+  size?: number;
+  /** Disable hover scale (e.g. for the detail page where the disc is the focus). */
+  staticDisc?: boolean;
 }
 
 export function DemoFrame({
   children,
   className,
-  grid = true,
+  size,
+  staticDisc = false,
 }: DemoFrameProps) {
   const [replayKey, setReplayKey] = useState(0);
   const replay = useCallback(() => {
@@ -45,10 +48,12 @@ export function DemoFrame({
     <DemoFrameContext.Provider value={{ replayKey, replay }}>
       <div
         className={cn(
-          "relative overflow-hidden rounded-2xl border border-border bg-surface",
-          grid && "demo-grid-bg",
+          "specimen-disc relative aspect-square overflow-hidden rounded-full border border-paper-3/40 bg-void-2",
+          "transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
+          !staticDisc && "group-hover:scale-[1.03] group-hover:border-star/70",
           className,
         )}
+        style={size ? { width: size, height: size } : undefined}
       >
         <div key={replayKey} className="relative h-full w-full">
           {children}
