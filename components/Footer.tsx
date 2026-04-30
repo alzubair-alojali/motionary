@@ -1,24 +1,20 @@
 export function Footer() {
   return (
-    <footer className="mt-32 border-t border-border">
-      <div className="flex flex-col items-start justify-between gap-3 px-4 py-8 text-sm sm:flex-row sm:items-center sm:px-8 lg:px-12">
-        <div className="flex items-center gap-2 text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-          <span className="text-foreground">Motionary</span>
-          <span aria-hidden="true">·</span>
-          <span>Motion patterns for developers</span>
-        </div>
-        <div className="flex items-center gap-4 text-xs text-muted-foreground">
-          <a
-            href="https://github.com/alzubair-alojali/motionary"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-foreground"
-          >
-            GitHub
-          </a>
-          <span aria-hidden="true">·</span>
-          <span>MIT</span>
+    <footer className="pointer-events-none fixed bottom-4 left-4 right-4 z-30 flex items-end justify-between gap-6 select-none font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-paper-3 sm:bottom-6 sm:left-6 sm:right-6">
+      <div>
+        <div>RA · 14H 32M 00S</div>
+        <div>DEC · −42°17′00″</div>
+        <div>EXP T = 800MS</div>
+      </div>
+      <div className="text-right">
+        <div>PLATE 01 / 18</div>
+        <div>STACK 1×</div>
+        <div className="flex items-center justify-end gap-1.5">
+          <span
+            aria-hidden="true"
+            className="inline-block h-1.5 w-1.5 rounded-full bg-star"
+          />
+          TRACKING
         </div>
       </div>
     </footer>

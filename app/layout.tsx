@@ -3,6 +3,9 @@ import { Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { StarField } from "@/components/StarField";
 import { CornerTelemetry } from "@/components/CornerTelemetry";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ObservatoryToaster } from "@/components/ObservatoryToaster";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -52,8 +55,11 @@ export default function RootLayout({
     >
       <body className="flex min-h-screen flex-col antialiased">
         <StarField />
+        <Header />
         <CornerTelemetry />
         <main className="relative flex-1">{children}</main>
+        <Footer />
+        <ObservatoryToaster />
       </body>
     </html>
   );
