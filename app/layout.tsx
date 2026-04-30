@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { StarField } from "@/components/StarField";
+import { CornerTelemetry } from "@/components/CornerTelemetry";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -49,7 +51,9 @@ export default function RootLayout({
       className={`${fraunces.variable} ${jetbrainsMono.variable}`}
     >
       <body className="flex min-h-screen flex-col antialiased">
-        <main className="flex-1">{children}</main>
+        <StarField />
+        <CornerTelemetry />
+        <main className="relative flex-1">{children}</main>
       </body>
     </html>
   );
