@@ -14,7 +14,6 @@ export function ObservatoryToaster() {
         style: {
           background: "var(--void-3)",
           border: "1px solid var(--rule)",
-          borderLeft: "2px solid var(--star)",
           color: "var(--paper)",
           borderRadius: 0,
           fontFamily: "var(--font-jetbrains-mono), ui-monospace, monospace",

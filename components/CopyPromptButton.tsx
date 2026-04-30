@@ -9,6 +9,22 @@ interface CopyPromptButtonProps {
   className?: string;
 }
 
+const successIcon = (
+  <span
+    aria-hidden="true"
+    className="mt-[3px] block h-2 w-2"
+    style={{ backgroundColor: "var(--star)" }}
+  />
+);
+
+const errorIcon = (
+  <span
+    aria-hidden="true"
+    className="mt-[3px] block h-2 w-2"
+    style={{ backgroundColor: "var(--safelight)" }}
+  />
+);
+
 export function CopyPromptButton({ prompt, className }: CopyPromptButtonProps) {
   const [copied, setCopied] = useState(false);
 
@@ -16,10 +32,12 @@ export function CopyPromptButton({ prompt, className }: CopyPromptButtonProps) {
     try {
       await navigator.clipboard.writeText(prompt);
       setCopied(true);
-      toast.success("Field notes copied");
+      toast.success("Field notes copied", { icon: successIcon });
       window.setTimeout(() => setCopied(false), 1500);
     } catch {
-      toast.error("Could not copy — select the text manually");
+      toast.error("Could not copy, select the text manually", {
+        icon: errorIcon,
+      });
     }
   };
 

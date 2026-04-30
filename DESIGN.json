@@ -263,9 +263,9 @@
       "name": "Toast",
       "kind": "card",
       "refersTo": "toast",
-      "description": "Telemetry-stamp toast for transient feedback. Square corners, 2px cool-star left edge.",
-      "html": "<div class=\"ds-toast\" role=\"status\">FIELD NOTES COPIED</div>",
-      "css": ".ds-toast { display: inline-block; padding: 12px 16px; background: #161922; border: 1px solid #2A2E36; border-left: 2px solid oklch(0.86 0.06 220); border-radius: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.14em; color: #F4EFE3; }"
+      "description": "Telemetry-stamp toast for transient feedback. Square corners, hairline border on all four sides. Status comes from a leading 8x8 colored square (cool-star = success, safelight-amber = error), never from a side stripe.",
+      "html": "<div class=\"ds-toast\" role=\"status\"><span class=\"ds-toast-dot\" aria-hidden=\"true\"></span><span class=\"ds-toast-text\">FIELD NOTES COPIED</span></div>",
+      "css": ".ds-toast { display: inline-flex; align-items: flex-start; gap: 10px; padding: 12px 16px; background: #161922; border: 1px solid #2A2E36; border-radius: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.14em; color: #F4EFE3; } .ds-toast-dot { display: block; width: 8px; height: 8px; margin-top: 3px; background: oklch(0.86 0.06 220); flex-shrink: 0; } .ds-toast-text { line-height: 1.4; }"
     },
     {
       "name": "Corner Telemetry Stamp",
@@ -344,7 +344,7 @@
       "Don't ship gradient text. Use a single solid color and emphasize via weight or size.",
       "Don't apply glassmorphism decoratively. Backdrop-blur exists on the replay button and the warp overlay; nowhere else.",
       "Don't use box-shadow anywhere in the chrome. The Flat-By-Default Rule applies.",
-      "Don't use side-stripe borders greater than 1 px. The toast's 2 px cool-star left edge is the single explicit exception.",
+      "Don't use side-stripe borders greater than 1 px on any surface. The toast carries status via a leading 8x8 px square dot, not a colored side edge. There are no exceptions to this ban.",
       "Don't ship 'AI startup landing-page template' energy: chrome 3D blobs, neon halos, gradient meshes behind hero text, identical card grids of feature bullets.",
       "Don't use 'Tailwind starter' defaults: slate-900 + indigo-500, rounded-2xl cards, pill nav, badges in the corners of every component.",
       "Don't add em dashes to copy. Use commas, semicolons, periods, or parentheses.",

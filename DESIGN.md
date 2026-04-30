@@ -331,10 +331,12 @@ A single pattern inside a field's index.
 
 Square-cornered telemetry stamp.
 
-- **Shape:** Zero radius, 1 px `hairline` border, 2 px `cool-star`
-  left-side stroke as a status edge (this is the only acceptable
-  side-stripe in the system, and only because it is 2 px not >1 px;
-  treat it as a rule, not a stripe).
+- **Shape:** Zero radius. 1 px `hairline` border on all four sides, no
+  side-stripe.
+- **Status indicator:** A leading 8 × 8 px square dot before the
+  message, set in `cool-star` for success or `safelight-amber` for
+  error. The colored square echoes the `TRACKING` dot in the footer
+  telemetry; status comes from the dot, not from a colored edge.
 - **Background:** `halo-well`.
 - **Text:** `field-cream`, `label` typography (mono small caps).
 - **Padding:** 12 × 16 px.
@@ -406,9 +408,9 @@ plus a two-side telemetry footer at the bottom edge.
   the replay button and the warp overlay; nowhere else.
 - **Don't** use `box-shadow` anywhere in the chrome. The Flat-By-Default
   Rule applies. State changes use border tint and scale, not new shadows.
-- **Don't** use side-stripe borders greater than 1 px (the toast's 2 px
-  `cool-star` left edge is the single explicit exception, and it acts
-  as a stamp accent, not a card stripe).
+- **Don't** use side-stripe borders greater than 1 px on any surface.
+  The toast carries status via a leading 8 × 8 px square dot, not a
+  colored side edge. There are no exceptions to this ban.
 - **Don't** ship "AI startup landing-page template" energy: chrome 3D
   blobs, neon halos, gradient meshes behind hero text, identical
   card grids of feature bullets. PRODUCT.md flags every one of these
