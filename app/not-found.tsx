@@ -1,26 +1,28 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="fade-rise mx-auto flex max-w-3xl flex-col items-start gap-6 px-4 py-32 sm:px-6">
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-        404 — pattern not found
-      </p>
-      <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-        That motion isn&apos;t here.
-      </h1>
-      <p className="max-w-md text-base text-muted-foreground">
-        The pattern either moved or never existed. Browse the catalog to find
-        what you were looking for.
-      </p>
-      <Link
-        href="/"
-        className="inline-flex h-10 items-center gap-2 rounded-full bg-accent px-5 text-sm font-medium text-accent-foreground transition-transform hover:scale-[1.02]"
-      >
-        <ArrowLeft size={14} />
-        Back to all patterns
-      </Link>
+    <div className="px-6 sm:px-12 lg:px-20">
+      <section className="mx-auto flex min-h-[80vh] max-w-3xl flex-col items-start justify-center gap-8 pt-32 pb-32">
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
+          NO SIGNAL · 404
+        </p>
+        <h1 className="font-display text-6xl italic leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-8xl">
+          Specimen not on plate.
+        </h1>
+        <p className="max-w-md font-display text-lg italic leading-relaxed text-paper-2">
+          The pattern you were looking for either drifted out of frame or was
+          never observed at this station. The field index lists every
+          catalogued specimen.
+        </p>
+        <Link
+          href="/"
+          className="inline-flex h-11 items-center gap-2 border border-paper-3/50 px-5 font-mono text-[11px] uppercase tracking-[0.2em] text-paper transition-colors hover:border-star hover:text-star"
+        >
+          <span aria-hidden="true">←</span>
+          Return to field index
+        </Link>
+      </section>
     </div>
   );
 }

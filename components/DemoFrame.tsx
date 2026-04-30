@@ -26,15 +26,18 @@ export function useDemoFrame() {
 
 interface DemoFrameProps {
   children: ReactNode;
+  /** Elements rendered on the outer wrapper, outside the clipped disc.
+   * Still inside the DemoFrame provider so they can call useDemoFrame(). */
+  actions?: ReactNode;
   className?: string;
-  /** Pixel size of the disc (square aspect). Defaults to 100% of the parent. */
   size?: number;
-  /** Disable hover scale (e.g. for the detail page where the disc is the focus). */
+  /** Disable hover scale (for the detail page where the disc is the focal element). */
   staticDisc?: boolean;
 }
 
 export function DemoFrame({
   children,
+  actions,
   className,
   size,
   staticDisc = false,
@@ -47,17 +50,21 @@ export function DemoFrame({
   return (
     <DemoFrameContext.Provider value={{ replayKey, replay }}>
       <div
-        className={cn(
-          "specimen-disc relative aspect-square overflow-hidden rounded-full border border-paper-3/40 bg-void-2",
-          "transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
-          !staticDisc && "group-hover:scale-[1.03] group-hover:border-star/70",
-          className,
-        )}
+        className={cn("relative aspect-square", className)}
         style={size ? { width: size, height: size } : undefined}
       >
-        <div key={replayKey} className="relative h-full w-full">
-          {children}
+        <div
+          className={cn(
+            "specimen-disc absolute inset-0 overflow-hidden rounded-full border border-paper-3/40 bg-void-2",
+            "transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
+            !staticDisc && "group-hover:scale-[1.03] group-hover:border-star/70",
+          )}
+        >
+          <div key={replayKey} className="relative h-full w-full">
+            {children}
+          </div>
         </div>
+        {actions}
       </div>
     </DemoFrameContext.Provider>
   );

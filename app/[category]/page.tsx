@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ExampleCard } from "@/components/ExampleCard";
@@ -15,7 +14,7 @@ export async function generateMetadata(
   const { category: categorySlug } = await props.params;
   const category = getCategory(categorySlug);
   if (!category) {
-    return { title: "Category not found" };
+    return { title: "Field not found" };
   }
   return {
     title: category.title,
@@ -28,33 +27,55 @@ export default async function CategoryPage(props: PageProps<"/[category]">) {
   const category = getCategory(categorySlug);
   if (!category) notFound();
 
+  const all = getCategories();
+  const ordinal = String(
+    all.findIndex((c) => c.slug === category.slug) + 1,
+  ).padStart(2, "0");
+  const count = String(category.examples.length).padStart(2, "0");
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-      <Link
-        href="/#categories"
-        className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ArrowLeft size={14} />
-        All categories
-      </Link>
+    <div className="px-6 sm:px-12 lg:px-20">
+      <section className="mx-auto max-w-5xl pt-32 pb-32 sm:pt-40 sm:pb-40">
+        <Link
+          href="/#fields"
+          className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3 transition-colors hover:text-paper"
+        >
+          ← FIELD INDEX
+        </Link>
 
-      <div className="mt-8 flex flex-col gap-3">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          {category.examples.length} patterns
-        </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          {category.title}
-        </h1>
-        <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
-          {category.description}
-        </p>
-      </div>
+        <header className="mt-12 flex flex-col gap-6 border-b border-rule pb-12">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
+            FIELD {ordinal} · {count} SPECIMENS
+          </p>
+          <h1 className="font-display text-6xl italic leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-8xl">
+            {category.title}
+          </h1>
+          <p className="max-w-2xl font-display text-xl italic leading-relaxed text-paper-2 sm:text-2xl">
+            {category.description}
+          </p>
+          <div className="mt-2 flex flex-wrap gap-x-8 gap-y-1 font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
+            <span>
+              <span className="text-paper-2">OBSERVATION LOG</span> · ATACAMA
+            </span>
+            <span>
+              <span className="text-paper-2">STACK</span> · 1×
+            </span>
+            <span>
+              <span className="text-paper-2">EXP</span> · 800MS
+            </span>
+          </div>
+        </header>
 
-      <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-        {category.examples.map((example) => (
-          <ExampleCard key={example.slug} example={example} />
-        ))}
-      </div>
+        <div>
+          {category.examples.map((example, i) => (
+            <ExampleCard
+              key={example.slug}
+              example={example}
+              index={i + 1}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

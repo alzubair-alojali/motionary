@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
-import { ViewTransition } from "react";
 import type { Metadata } from "next";
+import { CopyPromptButton } from "@/components/CopyPromptButton";
 import { DemoFrame } from "@/components/DemoFrame";
 import { ReplayButton } from "@/components/ReplayButton";
-import { CopyPromptButton } from "@/components/CopyPromptButton";
-import { getAllExamplePaths, getCategory, getExample } from "@/lib/content";
+import {
+  getAllExamplePaths,
+  getCategory,
+  getExample,
+} from "@/lib/content";
 
 export function generateStaticParams() {
   return getAllExamplePaths();
@@ -18,7 +20,7 @@ export async function generateMetadata(
   const { category, slug } = await props.params;
   const example = getExample(category, slug);
   if (!example) {
-    return { title: "Pattern not found" };
+    return { title: "Specimen not found" };
   }
   return {
     title: example.title,
@@ -35,73 +37,125 @@ export default async function ExamplePage(
   if (!example || !category) notFound();
 
   const { Demo } = example;
-  const transitionName = `demo-${category.slug}-${example.slug}`;
-  const titleName = `title-${category.slug}-${example.slug}`;
+
+  const allPaths = getAllExamplePaths();
+  const idx = allPaths.findIndex(
+    (p) => p.category === categorySlug && p.slug === exampleSlug,
+  );
+  const prev = idx > 0 ? allPaths[idx - 1] : null;
+  const next = idx < allPaths.length - 1 ? allPaths[idx + 1] : null;
+  const prevExample = prev ? getExample(prev.category, prev.slug) : null;
+  const nextExample = next ? getExample(next.category, next.slug) : null;
+  const ordinal = String(idx + 1).padStart(2, "0");
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
-      <Link
-        href={`/${category.slug}`}
-        className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ArrowLeft size={14} />
-        {category.title}
-      </Link>
+    <div className="px-6 sm:px-12 lg:px-20">
+      <section className="mx-auto max-w-5xl pt-32 pb-32 sm:pt-40 sm:pb-40">
+        <nav className="flex flex-wrap items-center gap-x-3 font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
+          <Link
+            href="/#fields"
+            className="transition-colors hover:text-paper"
+          >
+            ← FIELD INDEX
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link
+            href={`/${category.slug}`}
+            className="transition-colors hover:text-paper"
+          >
+            {category.title}
+          </Link>
+        </nav>
 
-      <div className="mt-8 flex flex-col gap-3">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          {category.title}
-        </p>
-        <ViewTransition name={titleName}>
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        <header className="mt-12 border-b border-rule pb-12">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
+            SPECIMEN {ordinal}
+          </p>
+          <h1 className="mt-4 font-display text-6xl italic leading-[0.95] tracking-tight text-paper sm:text-8xl lg:text-[112px]">
             {example.title}
           </h1>
-        </ViewTransition>
-        <p className="max-w-2xl text-base text-muted-foreground">
-          {example.description}
-        </p>
-      </div>
+          <p className="mt-6 max-w-2xl font-display text-xl italic leading-relaxed text-paper-2">
+            {example.description}
+          </p>
+        </header>
 
-      <div className="relative mt-10">
-        <ViewTransition name={transitionName}>
-          <DemoFrame className="h-[420px] sm:h-[480px]">
-            <Demo />
-            <ReplayButton className="absolute right-3 top-3" />
-          </DemoFrame>
-        </ViewTransition>
-      </div>
-
-      <section className="mt-12">
-        <div className="flex items-center justify-between gap-4">
-          <h2
-            id="ai-prompt-heading"
-            className="text-base font-medium tracking-tight text-foreground"
+        <div className="mt-20 flex justify-center">
+          <DemoFrame
+            staticDisc
+            className="w-full max-w-[440px]"
+            actions={
+              <ReplayButton className="absolute -right-2 -top-2 sm:-right-4 sm:-top-4" />
+            }
           >
-            AI prompt
-          </h2>
-          <CopyPromptButton prompt={example.prompt} />
+            <Demo />
+          </DemoFrame>
         </div>
-        <pre
-          tabIndex={0}
-          aria-labelledby="ai-prompt-heading"
-          className="mt-4 overflow-auto whitespace-pre-wrap rounded-2xl border border-border bg-surface p-5 font-mono text-sm leading-relaxed text-foreground"
-        >
-          {example.prompt}
-        </pre>
-      </section>
 
-      {example.tags.length > 0 && (
-        <section className="mt-8 flex flex-wrap items-center gap-2">
-          {example.tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground"
-            >
-              {tag}
+        <div className="mt-20 flex flex-wrap gap-x-10 gap-y-3 border-y border-rule py-6 font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3">
+          <span>
+            <span className="text-paper-2">FIELD</span> · {category.title}
+          </span>
+          <span>
+            <span className="text-paper-2">EXP</span> · 800MS
+          </span>
+          <span>
+            <span className="text-paper-2">EASING</span> · cubic-bezier
+          </span>
+          {example.tags.length > 0 && (
+            <span>
+              <span className="text-paper-2">TAGS</span> ·{" "}
+              {example.tags.join(" · ")}
             </span>
-          ))}
+          )}
+        </div>
+
+        <section className="mt-24">
+          <div className="flex items-end justify-between gap-6 border-b border-rule pb-6">
+            <h2 className="font-display text-3xl italic leading-tight tracking-tight text-paper sm:text-4xl">
+              Field notes
+            </h2>
+            <CopyPromptButton prompt={example.prompt} />
+          </div>
+          <div className="mt-10 max-w-[68ch]">
+            <p className="font-display text-lg italic leading-relaxed text-paper-2 sm:text-xl">
+              {example.prompt}
+            </p>
+          </div>
         </section>
-      )}
+
+        <nav className="mt-32 grid grid-cols-1 gap-8 border-t border-rule pt-10 sm:grid-cols-2">
+          <div>
+            {prevExample && (
+              <Link
+                href={`/${prevExample.category}/${prevExample.slug}`}
+                className="group flex flex-col gap-2"
+              >
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3 transition-colors group-hover:text-paper">
+                  ← PREVIOUS SPECIMEN
+                </span>
+                <span className="font-display text-xl italic text-paper-2 transition-colors group-hover:text-paper sm:text-2xl">
+                  {prevExample.title}
+                </span>
+              </Link>
+            )}
+          </div>
+          <div className="text-right">
+            {nextExample && (
+              <Link
+                href={`/${nextExample.category}/${nextExample.slug}`}
+                className="group flex flex-col items-end gap-2"
+              >
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper-3 transition-colors group-hover:text-paper">
+                  NEXT SPECIMEN →
+                </span>
+                <span className="font-display text-xl italic text-paper-2 transition-colors group-hover:text-paper sm:text-2xl">
+                  {nextExample.title}
+                </span>
+              </Link>
+            )}
+          </div>
+        </nav>
+      </section>
     </div>
   );
 }
