@@ -11,13 +11,13 @@ export const categories: CategoryMeta[] = [
     slug: "page-transitions",
     title: "Page Transitions",
     description:
-      "Smooth movement between routes — the connective tissue of navigation.",
+      "Smooth movement between routes, the connective tissue of navigation.",
   },
   {
     slug: "scroll-animations",
     title: "Scroll Animations",
     description:
-      "Motion choreographed to scroll position — parallax, pinning, and reveals.",
+      "Motion choreographed to scroll position: parallax, pinning, and reveals.",
   },
   {
     slug: "loading-states",
@@ -35,6 +35,6 @@ export const categories: CategoryMeta[] = [
     slug: "text-animations",
     title: "Text Animations",
     description:
-      "Reveal, glitch, and stagger — typography that performs.",
+      "Reveal, glitch, and stagger: typography that performs.",
   },
 ];

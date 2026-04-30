@@ -17,7 +17,7 @@ export default function Demo() {
     <div className="flex h-full w-full items-center justify-center">
       <button
         type="button"
-        aria-label="Heart pop demo — tap to replay"
+        aria-label="Heart pop demo, tap to replay"
         onClick={() => setPop((p) => p + 1)}
         className="relative"
       >

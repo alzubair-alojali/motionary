@@ -2,7 +2,7 @@
 
 > An observational field guide to interface motion.
 
-A reference library of 18 motion patterns for developers — transitions, hover
+A reference library of 18 motion patterns for developers: transitions, hover
 effects, scroll animations, loading states, micro-interactions, text
 animations. Each pattern shows a live demo and ships a **field-note prompt**
 you can paste into a coding agent (Claude, Cursor, v0) to recreate the effect
@@ -17,7 +17,7 @@ object.
 
 AI coding agents struggle to produce nuanced motion without a precise
 description. Existing animation galleries either show only finished UI (no
-spec) or only code (locked to a framework). Motionary closes the gap — every
+spec) or only code (locked to a framework). Motionary closes the gap; every
 pattern carries a framework-agnostic effect description ready to paste.
 
 ## Stack
@@ -35,7 +35,7 @@ pattern carries a framework-agnostic effect description ready to paste.
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # static export — ~28 prerendered pages
+npm run build    # static export, ~28 prerendered pages
 npm run lint
 ```
 
@@ -63,7 +63,7 @@ npm run lint
 Every demo:
 
 - Is a Client Component (`'use client'`)
-- Honors `useReducedMotion()` from `motion/react` — collapse to a sensible
+- Honors `useReducedMotion()` from `motion/react`: collapse to a sensible
   static end-state when reduced
 - Uses palette tokens (legacy aliases like `bg-accent` still resolve to the
   D4 tokens, so existing demos keep working)
@@ -74,8 +74,8 @@ Every demo:
 | Surface | Description |
 | --- | --- |
 | `/` | Viewfinder hero with the "Motionary" wordmark, ledger bar of catalog stats, and the six fields stacked below |
-| `/[category]` | A field's specimen list — title, observation log, three specimens with disc previews |
-| `/[category]/[slug]` | Specimen detail — large title, centered disc with replay control, metadata band, "Field notes" prompt block, prev/next pager |
+| `/[category]` | A field's specimen list: title, observation log, three specimens with disc previews |
+| `/[category]/[slug]` | Specimen detail: large title, centered disc with replay control, metadata band, "Field notes" prompt block, prev/next pager |
 
 Page transitions use a CSS-class warp (`body.warping`) that blurs and
 darkens `<main>` for ~360 ms while a centered "TRANSITION · LOCKED" overlay

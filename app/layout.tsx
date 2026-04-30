@@ -29,7 +29,7 @@ const SITE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Motionary — An Observational Field Guide to Interface Motion",
+    default: "Motionary: An Observational Field Guide to Interface Motion",
     template: "%s · Motionary",
   },
   description:

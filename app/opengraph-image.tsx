@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "Motionary — An Observational Field Guide to Interface Motion";
+  "Motionary: An Observational Field Guide to Interface Motion";
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -88,7 +88,7 @@ export default function OpengraphImage() {
               color: "#c9c2b0",
             }}
           >
-            — Eighteen specimens, set in the dark —
+            Eighteen specimens, set in the dark.
           </div>
         </div>
 

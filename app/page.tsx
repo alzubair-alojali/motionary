@@ -23,7 +23,7 @@ export default function Home() {
         </Viewfinder>
 
         <p className="mt-10 font-display text-xl italic leading-relaxed text-paper-2 sm:text-2xl">
-          — Eighteen specimens, set in the dark —
+          Eighteen specimens, set in the dark.
         </p>
         <p className="mt-6 max-w-md font-display text-base italic leading-relaxed text-paper-2 sm:text-lg">
           A long-exposure catalogue of interface motion patterns,

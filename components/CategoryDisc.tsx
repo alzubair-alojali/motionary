@@ -44,7 +44,7 @@ function generateStars(seed: number, count: number): DiscStar[] {
 export function CategoryDisc({ seed, className, size = 320 }: CategoryDiscProps) {
   const stars = generateStars(seed * 31 + 7, 90);
   const rand = makeRng(seed * 17 + 3);
-  // One small accent "object" off-center per category — same role as the
+  // One small accent "object" off-center per category. Same role as the
   // bright accent dot in D4's category plates.
   const ox = 30 + rand() * 40;
   const oy = 30 + rand() * 40;

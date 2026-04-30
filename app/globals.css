@@ -13,7 +13,7 @@
   --star: oklch(0.86 0.06 220);
   --safelight: oklch(0.62 0.1 50);
 
-  /* Legacy aliases — referenced by components scheduled for rebuild in
+  /* Legacy aliases. Referenced by components scheduled for rebuild in
      later phases. Removed in the final polish phase. */
   --background: var(--void);
   --foreground: var(--paper);
